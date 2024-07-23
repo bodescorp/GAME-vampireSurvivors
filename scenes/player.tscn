@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://c56osh7ttnqro"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_6uvse"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://assets/characters/happy_boo/happy_boo.tscn" id="1_wrer1"]
+[ext_resource type="PackedScene" uid="uid://bdrsj18j3twip" path="res://scenes/gun.tscn" id="3_ua2oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v488n"]
+radius = 27.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7w4hg"]
+radius = 34.0588
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drkyp"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4teof"]
+bg_color = Color(0.556863, 0.843137, 0.207843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6uvse")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_wrer1")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v488n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_ua2oa")]
+position = Vector2(-1, -45)
+
+[node name="HutBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HutBox"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_7w4hg")
+debug_color = Color(0.892689, 0.133822, 0.271275, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -69.0
+offset_top = -134.0
+offset_right = 73.0
+offset_bottom = -106.0
+theme_override_styles/background = SubResource("StyleBoxFlat_drkyp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4teof")
+value = 100.0
+show_percentage = false
