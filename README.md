@@ -48,7 +48,7 @@ cd GAME-vampireSurvivors
 
 ## Autores
 
-- **Glaymar A. de França** - *Desenvolvedor Principal* - [Seu GitHub](https://github.com/bodescorp)
+- **Glaymar A. de França** - *Desenvolvedor Principal* - [LINK](https://github.com/bodescorp)
 
 ## Licença
 
